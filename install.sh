@@ -14,7 +14,7 @@ echo -n "Enter database user password: "
 read dbpw
 
 db="create database $dbname;create user $dbuser@localhost;SET PASSWORD FOR $dbuser@localhost= PASSWORD('$dbpw');GRANT ALL PRIVILEGES ON $dbname.* TO $dbuser@localhost IDENTIFIED BY '$dbpw';FLUSH PRIVILEGES;"
-mysql -u root -p$mysqlp -e "$db"
+mysql -u root -p -e "$db"
  
 if [ $? != "0" ]; then
  echo "[Error]: Database creation failed"
